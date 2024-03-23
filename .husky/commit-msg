@@ -1,0 +1,23 @@
+#!/bin/bash
+
+RED='\033[0;31m'
+NO_COLOR='\033[0m'
+
+invalid_msg="${RED}Commit denied! Try 'feat:', 'fix:', etc.${NO_COLOR}"
+long_msg="${RED}Too long! Keep it under 88 chars.${NO_COLOR}"
+
+commit_message=$(head -1 "$1")
+
+if echo "$commit_message" | grep -qE "^Merge (branch|pull request) '.*' (of .+? )?into .+$"; then
+  exit 0
+fi
+
+if ! echo "$commit_message" | grep -qE "^(feat|fix|ci|chore|docs|test|style|refactor|perf|build|revert)(\(.+?\))?: .{1,}$"; then
+  echo -e "$invalid_msg" >&2
+  exit 1
+fi
+
+if ! echo "$commit_message" | grep -qE "^.{1,88}$"; then
+  echo -e "$long_msg" >&2
+  exit 1
+fi
