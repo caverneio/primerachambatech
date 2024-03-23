@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/sh
+. "$(dirname "$0")/_/husky.sh"
 
 RED='\033[0;31m'
 NO_COLOR='\033[0m'
