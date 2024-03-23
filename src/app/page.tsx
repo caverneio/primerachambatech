@@ -10,6 +10,10 @@ export default function Home() {
       <div className="text-center">
         <h1 className="text-4xl font-bold">shadcn/ui demo</h1>
         <p>For primerachamba.tech {version}</p>
+        <p>For primerachamba.tech {version}</p>
+        <p>For primerachamba.tech {version}</p>
+        <p>For primerachamba.tech {version}</p>
+        <p>For primerachamba.tech {version}</p>
       </div>
       <ThemePicker />
       <ToggleGroupDemo />
