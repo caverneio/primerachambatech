@@ -1,2 +1,4 @@
-pnpm format
+pnpm prettier --write .
+pnpm lint
+pnpm vitest run
 git add -A .
